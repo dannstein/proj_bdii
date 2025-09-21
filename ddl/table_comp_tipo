@@ -1,0 +1,6 @@
+create table componente_tipo(
+	id int generated always as identity primary key,
+	ct_nome varchar(50) not null
+);
+
+comment on table componente_tipo is 'Tipo do componente/peça';

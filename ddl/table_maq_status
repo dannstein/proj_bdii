@@ -1,0 +1,6 @@
+create table maquina_status(
+	id int generated always as identity primary key,
+	ms_nome varchar(50) not null
+);
+
+comment on table maquina_status is 'Status do atendimento da maquina';
