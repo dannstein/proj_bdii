@@ -1,0 +1,12 @@
+create table componentes(
+	id int generated always as identity primary key,
+	comp_nome varchar(50) not null,
+	comp_tipo int not null,
+	comp_qtd int not null,
+	comp_preco_unit numeric(10,2) not null,
+	constraint fk_componente_tipo foreign key (comp_tipo) references componente_tipo(id)
+
+);
+
+
+comment on table componentes is 'Informacoes sobre componentes no estoque';

@@ -1,0 +1,11 @@
+create table servicos(
+	id int generated always as identity primary key,
+	id_maq int not null,
+	desc_comp_orig varchar(50) not null,
+	id_comp_troca int not null,
+	servico_data timestamp without time zone,
+	constraint fk_servico_maquina foreign key (id_maq) references maquinas(id),
+	constraint fk_servico_componente foreign key (id_comp_troca) references componentes(id)
+);
+
+comment on table servicos is 'Descricao dos servicos feitos na maquina x';

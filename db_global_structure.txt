@@ -1,0 +1,146 @@
+------------- maq_tipo ------------------
+
+create table maquinatipo(
+	id int generated always as identity primary key,
+	nome varchar(50) not null
+
+);
+
+comment on table maquinatipo is 'Tipo da maquina (Notebook, Laptop, Computador...)';
+
+------------- osstatus ------------------
+
+create table osstatus(
+	id int generated always as identity primary key,
+	tipo varchar(50) not null
+);
+
+comment on table osstatus is 'Status do atendimento da os';
+
+------------- comp_tipo ------------------
+
+create table componentetipo(
+	id int generated always as identity primary key,
+	nome varchar(50) not null
+);
+
+comment on table componentetipo is 'Tipo do componente/peça';
+
+------------- cliente -------------------
+
+create table cliente(
+	id int generated always as identity primary key,
+	nome varchar(50),
+	celular varchar(50),
+	cpf varchar(14),
+	email varchar(50)
+	
+);
+
+comment on table cliente is 'Informacoes sobre o cliente';
+
+------------- turno -------------------
+
+create table turno(
+	id int generated always as identity primary key,
+	tipo varchar(50),
+	entrada timestamp without timezone,
+	saida timestamp without timezone
+);
+
+comment on table turno is 'Horario dos turnos dos funcionarios';
+comment on column tipo is 'Turno 1 / ADM / Turno 2';
+
+
+------------- funcionario -------------------
+
+create table funcionario(
+	id int generated always as identity primary key,
+	nome varchar(50),
+	celular varchar(50),
+	cpf varchar(14),
+	emailpessoal varchar(50),
+	emailcorp varchar(50),
+	ingresso timestamp without timezone,
+	regresso timestamp without timezone,
+	turno_id int not null,
+	constraint fk_turno_id foreign key (turno_id) references turno(id)
+
+);
+
+comment on table funcionario is 'Informacoes sobre o funcionario';
+
+
+------------- maquinas ------------------
+
+create table maquinas(
+	id int generated always as identity primary key,
+	ns int not null,
+	maquinatipo_id int not null,
+	modelo varchar(50),
+	cliente_id int not null,
+	constraint fk_maquinatipo_id foreign key (maquinatipo_id) references maquinatipo(id),
+	constraint fk_cliente_id foreign key (cliente_id) references cliente(id)
+);
+
+comment on table maquinas is 'Informacoes sobre a maquina recebida';
+comment on column ns is 'Numero de serie da maquina';
+
+------------- componentes ------------------
+
+create table componentes(
+	id int generated always as identity primary key,
+	nome varchar(50) not null,
+	componentetipo_id int not null,
+	qtd int not null,
+	precounit numeric(10,2) not null,
+	constraint fk_componente_tipo foreign key (componentetipo_id) references componentetipo(id)
+
+);
+
+
+comment on table componentes is 'Informacoes sobre componentes no estoque';
+
+------------- servicos ------------------
+
+create table servicos(
+	id int generated always as identity primary key,
+	maquinas_id int not null,
+	status_id int not null,
+	entrada timestamp without timezone,
+	saida timestamp without timezone,
+	problema varchar(255),
+	solucao varchar(255),
+	responsavel_id int not null,
+	constraint fk_servico_maquina foreign key (maquinas_id) references maquinas(id),
+	constraint fk_status foreign key (status_id) references osstatus(id),
+	constraint fk_responsavel_id foreign key (responsavel_id) references funcionario(id)
+);
+
+comment on table servicos is 'Descricao dos servicos feitos na maquina x';
+
+------------- trocas ------------------
+
+create table trocas(
+	id int generated always as identity primary key,
+	servicos_id int not null,
+	comporiginal varchar(50),
+	componentes_id int not null,
+	constraint fk_servicos_id foreign key (servicos_id) references servicos(id),
+	constraint fk_componentes_id foreign key (componentes_id) references componentes(id)
+);
+
+comment on table trocas is 'Todos os componentes trocados ou adicionados no servico especificado';
+
+------------- apontamento ------------------
+
+create table apontamento(
+	id int generated always as identity primary key,
+	servicos_id int not null,
+	horas numeric(5, 2) not null,
+	funcionario_id int not null,
+	constraint fk_servicos_id foreign key (servicos_id) references servicos(id),
+	constraint fk_funcionario_id foreign key (funcionario_id) references funcionario(id)
+);
+
+comment on table apontamento is 'Apontamento de horas de um servico';

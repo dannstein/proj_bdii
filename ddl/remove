@@ -1,6 +1,11 @@
+drop table apontamento;
+drop table trocas;
 drop table servicos;
-drop table maquinas;
 drop table componentes;
-drop table maquina_tipo;
-drop table maquina_status;
-drop table componente_tipo;
+drop table maquinas;
+drop table funcionario;
+drop table turno;
+drop table cliente;
+drop table componentetipo;
+drop table osstatus;
+drop table maquinatipo;

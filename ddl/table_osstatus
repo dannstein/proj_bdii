@@ -1,0 +1,7 @@
+create table osstatus(
+	id int generated always as identity primary key,
+	tipo varchar(50) not null
+);
+
+comment on table osstatus is 'Status do atendimento da os';
+

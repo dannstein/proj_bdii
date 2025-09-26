@@ -1,15 +1,12 @@
 create table maquinas(
 	id int generated always as identity primary key,
-	maq_num int not null,
-	maq_tipo int not null,
-	maq_modelo varchar(50),
-	desc_problema varchar(255),
-	maq_data_entrada timestamp without time zone,
-	maq_data_saida timestamp without time zone,
-	desc_solucao varchar(255),
-	status int not null,
-	constraint fk_maquina_tipo foreign key (maq_tipo) references maquina_tipo(id),
-	constraint fk_maquina_status foreign key (status) references maquina_status(id)
+	numserie int not null,
+	maquinatipo_id int not null,
+	modelo varchar(50),
+	cliente_id int not null,
+	constraint fk_maquinatipo_id foreign key (maquinatipo_id) references maquinatipo(id),
+	constraint fk_cliente_id foreign key (cliente_id) references cliente(id)
 );
 
 comment on table maquinas is 'Informacoes sobre a maquina recebida';
+

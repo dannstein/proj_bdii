@@ -1,6 +1,11 @@
-\i table_maq_tipo
-\i table_maq_status
-\i table_comp_tipo
+\i table_maquinatipo
+\i table_osstatus
+\i table_componentetipo
+\i table_cliente
+\i table_turno
+\i table_funcionario
 \i table_maquinas
 \i table_componentes
 \i table_servicos
+\i table_trocas
+\i table_apontamento

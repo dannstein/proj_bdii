@@ -1,0 +1,7 @@
+create table maquinatipo(
+	id int generated always as identity primary key,
+	nome varchar(50) not null
+
+);
+
+comment on table maquinatipo is 'Tipo da maquina (Notebook, Laptop, Computador...)';

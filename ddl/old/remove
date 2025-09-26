@@ -1,0 +1,6 @@
+drop table servicos;
+drop table maquinas;
+drop table componentes;
+drop table maquina_tipo;
+drop table maquina_status;
+drop table componente_tipo;
