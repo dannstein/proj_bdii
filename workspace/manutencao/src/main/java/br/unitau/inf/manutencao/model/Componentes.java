@@ -1,11 +1,13 @@
 package br.unitau.inf.manutencao.model;
 
 import jakarta.persistence.*;
+
 import java.math.BigDecimal;
 
 @Entity
 @Table(name = "componentes")
-public class Componente{
+public class Componentes{
+	
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,13 +18,15 @@ public class Componente{
 	
 	@ManyToOne
 	@JoinColumn(name = "componentetipo_id", nullable = false)
-	private Integer componentetipo;
+	private ComponenteTipo tipo;
 	
 	@Column(nullable = false)
 	private Integer qtd;
 	
-	@Column(nullable = false)
-	private BigDecimal precounit;
+	@Column(name = "precounit")
+	private BigDecimal precoUnitario;
+	
+	
 	
 	
 	

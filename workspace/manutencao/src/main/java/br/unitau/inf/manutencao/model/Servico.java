@@ -3,6 +3,8 @@ package br.unitau.inf.manutencao.model;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
+import br.unitau.inf.manutencao.model.Componentes;
+
 @Entity
 @Table(name = "servicos")
 public class Servico{
@@ -20,7 +22,7 @@ public class Servico{
 	
 	@ManyToOne
 	@JoinColumn(name = "id_comp_troca", nullable = false)
-	private Componente componenteTroca;
+	private Componentes componenteTroca;
 	
 	@Column(name = "servico_data")
 	private LocalDateTime servicoData;

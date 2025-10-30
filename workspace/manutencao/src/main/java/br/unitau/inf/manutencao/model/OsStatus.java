@@ -17,5 +17,23 @@ public class OsStatus{
 	
 	
 	
-	//getters n setters
+	//getters
+	
+		public Long getId() {
+			return id;
+		}
+		
+		public String getTipo() {
+			return tipo;
+		}
+		
+		//setters
+		
+		public void setId(Long id) {
+			this.id = id;
+		}
+		
+		public void setTipo(String tipo) {
+			this.tipo = tipo;
+		}
 }

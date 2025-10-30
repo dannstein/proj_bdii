@@ -1,8 +1,8 @@
 create table turno(
 	id int generated always as identity primary key,
 	tipo varchar(50),
-	entrada timestamp without time zone,
-	saida timestamp without time zone
+	entrada time not null,
+	saida time not null
 );
 
 comment on table turno is 'Horario dos turnos dos funcionarios';

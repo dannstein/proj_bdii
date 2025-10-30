@@ -5,8 +5,8 @@ create table funcionario(
 	cpf varchar(14),
 	emailpessoal varchar(50),
 	emailcorp varchar(50),
-	ingresso timestamp without time zone,
-	regresso timestamp without time zone,
+	ingresso date not null,
+	demissao date,
 	turno_id int not null,
 	constraint fk_turno_id foreign key (turno_id) references turno(id)
 

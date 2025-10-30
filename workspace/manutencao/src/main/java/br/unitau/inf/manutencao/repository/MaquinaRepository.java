@@ -13,8 +13,6 @@ public interface MaquinaRepository extends JpaRepository<Maquina, Long>{
 	
 	List<Maquina> findByModelo(String modelo);
 	
-	List<Maquina> findByMaquinaTipo_Id(Long tipoId);
-	
 	List<Maquina> findByCliente_Id(Long clienteId);
 	
 	

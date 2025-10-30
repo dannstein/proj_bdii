@@ -4,24 +4,20 @@ import br.unitau.inf.manutencao.model.Cliente;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
 import java.util.List;
 
 @Repository
 public interface ClienteRepository extends JpaRepository<Cliente, Long>{
 	
 	
-	List<Cliente> findByNome(String nome);
+	Optional<Cliente> findByNome(String nome);
 	
-	List<Cliente> findByNomeIgnoreCase(String nome);
+	Optional<Cliente> findByCpf(String cpf);
 	
-	List<Cliente> findByNomeContaining(String nome);
+	Optional<Cliente> findByCelular(String celular);
 	
-	List<Cliente> findByNomeContainingIgnoreCase(String nome);
+	Optional<Cliente> findByEmail(String email);
 	
-	List<Cliente> findByCpf(String cpf);
-	
-	List<Cliente> findByCelular(String celular);
-	
-	List<Cliente> findByEmail(String email);
-	
+	boolean existsByCpfOrEmailOrCelular(String cpf, String email, String celular);
 }

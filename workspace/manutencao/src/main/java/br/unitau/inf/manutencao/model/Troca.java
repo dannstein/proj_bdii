@@ -3,6 +3,8 @@ package br.unitau.inf.manutencao.model;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
+import br.unitau.inf.manutencao.model.Componentes;
+
 @Entity
 @Table(name = "trovas")
 public class Troca{
@@ -20,7 +22,7 @@ public class Troca{
 	
 	@ManyToOne
 	@JoinColumn(name = "componentes_id", nullable = false)
-	private Componente componente;
+	private Componentes componente;
 	
 	
 	

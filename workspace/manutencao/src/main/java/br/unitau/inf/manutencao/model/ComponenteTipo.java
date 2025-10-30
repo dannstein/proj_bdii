@@ -17,5 +17,23 @@ public class ComponenteTipo{
 	
 	
 	
-	//getters n setters
+	//getters
+	
+	public Long getId() {
+		return id;
+	}
+	
+	public String getNome() {
+		return nome;
+	}
+	
+	//setters
+	
+	public void setId(Long id) {
+		this.id = id;
+	}
+	
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 }
