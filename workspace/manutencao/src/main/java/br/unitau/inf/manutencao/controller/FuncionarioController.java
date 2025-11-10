@@ -30,7 +30,7 @@ import br.unitau.inf.manutencao.model.Turno;
 import br.unitau.inf.manutencao.repository.TurnoRepository;
 
 @RestController
-@RequestMapping("Funcionario")
+@RequestMapping("funcionario")
 public class FuncionarioController {
 	@Autowired
 	private FuncionarioRepository repository;

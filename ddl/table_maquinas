@@ -1,6 +1,6 @@
 create table maquinas(
 	id int generated always as identity primary key,
-	numserie int not null,
+	numserie varchar(50) not null,
 	maquinatipo_id int not null,
 	modelo varchar(50),
 	cliente_id int not null,

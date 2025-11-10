@@ -11,8 +11,6 @@ import java.util.List;
 
 @Repository
 public interface MaquinaTipoRepository extends JpaRepository<MaquinaTipo, Long>{
-	//metodos personalizados (findByModelo, etc..)
-	//JpaRepository já herda findById, findAll, save, count, delete...
 	
 	Optional<MaquinaTipo>  findByNome(String nome);
 	

@@ -15,7 +15,7 @@ public class MaquinaTipo{
 	
 	
 	
-	//getters n setters
+	//getters
 	
 	public Long getId() {
 		return id;
@@ -24,6 +24,8 @@ public class MaquinaTipo{
 	public String getNome() {
 		return nome;
 	}
+	
+	//setters
 	
 	public void setId(Long id) {
 		this.id = id;
