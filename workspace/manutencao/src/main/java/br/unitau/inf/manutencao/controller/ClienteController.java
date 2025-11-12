@@ -23,6 +23,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import br.unitau.inf.manutencao.dto.ClienteGetDTO;
 import br.unitau.inf.manutencao.dto.ClientePostDTO;
 import br.unitau.inf.manutencao.dto.ClientePutDTO;
+import br.unitau.inf.manutencao.dto.ClientePatchDTO;
 import br.unitau.inf.manutencao.model.Cliente;
 import br.unitau.inf.manutencao.repository.ClienteRepository;
 
@@ -110,7 +111,7 @@ public class ClienteController {
 	
 	@PatchMapping("/{id}")
 	@Transactional
-	public ResponseEntity<ClienteGetDTO> patch(@PathVariable("id") Long id, @RequestBody ClientePutDTO body, UriComponentsBuilder uriBuilder) {
+	public ResponseEntity<ClienteGetDTO> patch(@PathVariable("id") Long id, @RequestBody ClientePatchDTO body, UriComponentsBuilder uriBuilder) {
 
 	    Optional<Cliente> search = repository.findById(id);
 

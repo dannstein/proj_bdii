@@ -23,6 +23,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import br.unitau.inf.manutencao.dto.MaquinaGetDTO;
 import br.unitau.inf.manutencao.dto.MaquinaPostDTO;
 import br.unitau.inf.manutencao.dto.MaquinaPutDTO;
+import br.unitau.inf.manutencao.dto.MaquinaPatchDTO;
 import br.unitau.inf.manutencao.model.Maquina;
 import br.unitau.inf.manutencao.repository.MaquinaRepository;
 
@@ -115,7 +116,7 @@ public class MaquinaController {
     @Transactional
     public ResponseEntity<MaquinaGetDTO> patch(
             @PathVariable("id") Long id,
-            @RequestBody MaquinaPutDTO body,
+            @RequestBody MaquinaPatchDTO body,
             UriComponentsBuilder uriBuilder) {
 
         Optional<Maquina> search = repository.findById(id);

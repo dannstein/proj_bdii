@@ -24,6 +24,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import br.unitau.inf.manutencao.dto.TurnoGetDTO;
 import br.unitau.inf.manutencao.dto.TurnoPostDTO;
 import br.unitau.inf.manutencao.dto.TurnoPutDTO;
+import br.unitau.inf.manutencao.dto.TurnoPatchDTO;
 import br.unitau.inf.manutencao.model.Turno;
 import br.unitau.inf.manutencao.repository.TurnoRepository;
 
@@ -99,7 +100,7 @@ public class TurnoController {
 
 	@PatchMapping("/{id}")
 	@Transactional
-	public ResponseEntity<TurnoGetDTO> patch(@PathVariable("id") Long id, @RequestBody TurnoPutDTO body) {
+	public ResponseEntity<TurnoGetDTO> patch(@PathVariable("id") Long id, @RequestBody TurnoPatchDTO body) {
 	    Optional<Turno> search = repository.findById(id);
 	
 	    if (search.isEmpty()) {

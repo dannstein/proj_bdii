@@ -23,6 +23,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import br.unitau.inf.manutencao.dto.FuncionarioGetDTO;
 import br.unitau.inf.manutencao.dto.FuncionarioPostDTO;
 import br.unitau.inf.manutencao.dto.FuncionarioPutDTO;
+import br.unitau.inf.manutencao.dto.FuncionarioPatchDTO;
 import br.unitau.inf.manutencao.model.Funcionario;
 import br.unitau.inf.manutencao.repository.FuncionarioRepository;
 
@@ -128,7 +129,7 @@ public class FuncionarioController {
     @Transactional
     public ResponseEntity<FuncionarioGetDTO> patch(
             @PathVariable("id") Long id,
-            @RequestBody FuncionarioPutDTO body,
+            @RequestBody FuncionarioPatchDTO body,
             UriComponentsBuilder uriBuilder) {
 
         Optional<Funcionario> search = repository.findById(id);

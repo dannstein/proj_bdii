@@ -2,7 +2,6 @@ package br.unitau.inf.manutencao.dto;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import java.time.LocalDate;
 
 import br.unitau.inf.manutencao.model.Maquina;
 

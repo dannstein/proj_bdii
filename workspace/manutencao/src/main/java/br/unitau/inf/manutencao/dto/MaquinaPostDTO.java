@@ -4,18 +4,11 @@ import br.unitau.inf.manutencao.model.Maquina;
 import br.unitau.inf.manutencao.model.MaquinaTipo;
 import br.unitau.inf.manutencao.model.Cliente;
 
-import java.time.LocalDate;
-
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.PastOrPresent;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.br.CPF;
+
 
 public class MaquinaPostDTO{
 	@NotBlank
