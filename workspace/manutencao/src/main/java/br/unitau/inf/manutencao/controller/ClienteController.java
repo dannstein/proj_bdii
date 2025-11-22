@@ -41,10 +41,34 @@ public class ClienteController {
     	return ClienteGetDTO.convert(lista);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/id/{id}")
     public ResponseEntity<Cliente> getById(@PathVariable Long id) {
     	ResponseEntity<Cliente> ret = ResponseEntity.notFound().build();
     	Optional<Cliente> search = repository.findById(id);
+    	if (search.isPresent()) {
+    		Cliente item = search.get();
+    		ret = ResponseEntity.ok(item);
+    	} else
+    		System.out.println("Cliente nao encontrado");
+    	return ret;
+    }
+    
+    @GetMapping("/nome/{nome}")
+    public ResponseEntity<Cliente> getByNome(@PathVariable String nome) {
+    	ResponseEntity<Cliente> ret = ResponseEntity.notFound().build();
+    	Optional<Cliente> search = repository.findByNome(nome);
+    	if (search.isPresent()) {
+    		Cliente item = search.get();
+    		ret = ResponseEntity.ok(item);
+    	} else
+    		System.out.println("Cliente nao encontrado");
+    	return ret;
+    }
+    
+    @GetMapping("/cpf/{cpf}")
+    public ResponseEntity<Cliente> getByCpf(@PathVariable String cpf) {
+    	ResponseEntity<Cliente> ret = ResponseEntity.notFound().build();
+    	Optional<Cliente> search = repository.findByCpf(cpf);
     	if (search.isPresent()) {
     		Cliente item = search.get();
     		ret = ResponseEntity.ok(item);

@@ -37,10 +37,10 @@ public class FuncionarioPostDTO{
 	
 	@NotNull
 	@PastOrPresent
-	@JsonFormat(pattern="yyyy/MM/dd",timezone = "America/Sao_Paulo")	
+	@JsonFormat(pattern="yyyy-MM-dd",timezone = "America/Sao_Paulo")	
 	private LocalDate ingresso;
 	
-	@JsonFormat(pattern="yyyy/MM/dd",timezone = "America/Sao_Paulo")	
+	@JsonFormat(pattern="yyyy-MM-dd",timezone = "America/Sao_Paulo")	
 	private LocalDate demissao;
 	
 	private Long turnoId;

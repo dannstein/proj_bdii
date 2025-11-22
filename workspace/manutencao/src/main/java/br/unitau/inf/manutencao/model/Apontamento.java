@@ -22,5 +22,40 @@ public class Apontamento{
 	@Column(nullable = false)
 	private BigDecimal horas;
 	
-	//getters n setters
+	//getters
+	
+	public Long getId() {
+		return id;
+	}
+	
+	public Servico getServico() {
+		return servico;
+	}
+	
+	public Funcionario getFuncionario() {
+		return funcionario;
+	}
+	
+	public BigDecimal getHoras() {
+		return horas;
+	}
+		
+	
+	//setters
+	
+	public void setId(Long id) {
+		this.id = id;
+	}
+	
+	public void setServico(Servico serv) {
+		this.servico = serv;
+	}
+	
+	public void setFuncionario(Funcionario f) {
+		this.funcionario = f;
+	}
+	
+	public void setHoras(BigDecimal h) {
+		this.horas = h;
+	}
 }

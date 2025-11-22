@@ -46,10 +46,22 @@ public class FuncionarioController {
     	return FuncionarioGetDTO.convert(lista);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/id/{id}")
     public ResponseEntity<Funcionario> getById(@PathVariable Long id) {
     	ResponseEntity<Funcionario> ret = ResponseEntity.notFound().build();
     	Optional<Funcionario> search = repository.findById(id);
+    	if (search.isPresent()) {
+    		Funcionario item = search.get();
+    		ret = ResponseEntity.ok(item);
+    	} else
+    		System.out.println("Funcionario nao encontrado");
+    	return ret;
+    }
+    
+    @GetMapping("/nome/{nome}")
+    public ResponseEntity<Funcionario> getByNome(@PathVariable String nome) {
+    	ResponseEntity<Funcionario> ret = ResponseEntity.notFound().build();
+    	Optional<Funcionario> search = repository.findByNome(nome);
     	if (search.isPresent()) {
     		Funcionario item = search.get();
     		ret = ResponseEntity.ok(item);

@@ -54,7 +54,7 @@ public class MaquinaController {
     	return MaquinaGetDTO.convert(lista);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/id/{id}")
     public ResponseEntity<Maquina> getById(@PathVariable Long id) {
     	ResponseEntity<Maquina> ret = ResponseEntity.notFound().build();
     	Optional<Maquina> search = repository.findById(id);
@@ -64,6 +64,34 @@ public class MaquinaController {
     	} else
     		System.out.println("Maquina nao encontrado");
     	return ret;
+    }
+    
+    @GetMapping("/ns/{ns}")
+    public ResponseEntity<Maquina> getByNs(@PathVariable String ns) {
+    	ResponseEntity<Maquina> ret = ResponseEntity.notFound().build();
+    	Optional<Maquina> search = repository.findByNumserie(ns);
+    	if (search.isPresent()) {
+    		Maquina item = search.get();
+    		ret = ResponseEntity.ok(item);
+    	} else
+    		System.out.println("Maquina nao encontrado");
+    	return ret;
+    }
+    
+    @GetMapping("/cliente/{cpf}")
+    public ResponseEntity<List<MaquinaGetDTO>> getByClienteCpf(@PathVariable String cpf) {
+
+        List<Maquina> maquinas = repository.findAllByCliente_Cpf(cpf);
+
+        if (maquinas.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+
+        List<MaquinaGetDTO> dto = maquinas.stream()
+                .map(MaquinaGetDTO::new)
+                .toList();
+
+        return ResponseEntity.ok(dto);
     }
 
     @PostMapping
